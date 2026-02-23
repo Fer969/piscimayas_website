@@ -1,10 +1,10 @@
 /* Estilos específicos para la página de galería */
 
-/* Hero de la galería */
+/* Hero de la galería - 60% fondo claro, 30% texto */
 .gallery-hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: white;
-    margin-top: 80px; /* Espacio para el navbar fijo */
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    color: var(--text-dark);
+    margin-top: 80px;
     position: relative;
     overflow: hidden;
 }
@@ -16,8 +16,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="wave" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0,50 Q25,25 50,50 T100,50 L100,100 L0,100 Z" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23wave)"/></svg>') repeat;
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="wave" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0,50 Q25,25 50,50 T100,50 L100,100 L0,100 Z" fill="rgba(0,0,0,0.02)"/></pattern></defs><rect width="100" height="100" fill="url(%23wave)"/></svg>') repeat;
+    opacity: 1;
     z-index: 1;
 }
 
@@ -30,12 +30,12 @@
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    color: var(--text-dark);
 }
 
 .gallery-subtitle {
     font-size: 1.2rem;
-    opacity: 0.9;
+    color: var(--text-muted);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -50,15 +50,16 @@
     position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: var(--shadow-light);
-    transition: var(--transition);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-hover);
     height: 300px;
     cursor: pointer;
     background: var(--neutral-color);
+    border: 1px solid var(--neutral-color);
 }
 
 .gallery-item:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-medium);
 }
 
@@ -71,7 +72,7 @@
 }
 
 .gallery-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.06);
 }
 
 .gallery-overlay {
@@ -117,9 +118,9 @@
 }
 
 .gallery-placeholder:hover {
-    background: var(--secondary-color);
+    background: var(--primary-color);
     color: white;
-    border-color: var(--secondary-color);
+    border-color: var(--primary-color);
 }
 
 .gallery-placeholder i {
@@ -132,6 +133,7 @@
     border: none;
     border-radius: var(--border-radius);
     overflow: hidden;
+    box-shadow: var(--shadow-hover);
 }
 
 .image-container {
@@ -173,12 +175,12 @@
     padding: 1rem 2rem;
     font-weight: 600;
     border-radius: 50px;
-    transition: var(--transition);
+    transition: var(--transition-hover);
 }
 
 #load-more-btn:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-medium);
+    box-shadow: var(--shadow-light);
 }
 
 /* Animaciones de carga */
@@ -202,7 +204,7 @@
     }
 }
 
-/* Efectos de hover mejorados */
+/* Efecto hover sutil */
 .gallery-item::before {
     content: '';
     position: absolute;
@@ -210,9 +212,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(198, 40, 40, 0.1), rgba(229, 57, 53, 0.1));
+    background: linear-gradient(135deg, rgba(198, 40, 40, 0.06), rgba(229, 57, 53, 0.06));
     opacity: 0;
-    transition: var(--transition);
+    transition: var(--transition-hover);
     z-index: 1;
 }
 
@@ -293,25 +295,17 @@
 
 /* Mejoras de accesibilidad */
 .gallery-item:focus {
-    outline: 3px solid var(--secondary-color);
+    outline: 3px solid var(--primary-color);
     outline-offset: 2px;
 }
 
 /* Efectos de transición suaves */
 .gallery-item,
 #load-more-btn {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--transition-hover);
 }
 
-/* Mejoras visuales adicionales */
+/* Fondo 60% claro para galería */
 .gallery-main {
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-}
-
-.gallery-item {
-    border: 1px solid rgba(198, 40, 40, 0.1);
-}
-
-.gallery-item:hover {
-    border-color: var(--primary-color);
+    background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
 }

@@ -121,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }, 100);
         });
-
         // Botón de descarga
         downloadBtn.addEventListener('click', function() {
             const currentImage = getCurrentModalImage();

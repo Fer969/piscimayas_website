@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observar elementos para animaciones
-    const animateElements = document.querySelectorAll('.about-card, .product-card, .gallery-item, .contact-form, .contact-info');
+    const animateElements = document.querySelectorAll('.about-card, .product-card, .policy-card, .gallery-item, .contact-form, .contact-info');
     animateElements.forEach(el => {
         observer.observe(el);
     });
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Efecto de hover mejorado para cards
-    const cards = document.querySelectorAll('.product-card, .about-card');
+    const cards = document.querySelectorAll('.product-card, .about-card, .policy-card');
     
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
