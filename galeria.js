@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Lista de imágenes disponibles en la galería (se cargan automáticamente)
     const availableImages = [
+        'cosecha-tilapia-roja.png',
+        'vista-lagunas-cultivo.png',
+        'vista-aerea-granja-acuicola.png',
         'lagunas-produccion.jpg',
         'proceso-alimentacion.jpg', 
         'cosecha-tilapia.jpg',
@@ -16,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Títulos simples para las imágenes (sin descripciones largas)
     const imageTitles = {
+        'cosecha-tilapia-roja.png': 'Cosecha de Tilapia Roja',
+        'vista-lagunas-cultivo.png': 'Vista de Lagunas de Cultivo',
+        'vista-aerea-granja-acuicola.png': 'Vista Aérea de la Granja Acuícola',
         'lagunas-produccion.jpg': 'Lagunas de Producción',
         'proceso-alimentacion.jpg': 'Proceso de Alimentación',
         'cosecha-tilapia.jpg': 'Cosecha de Tilapia Roja',
@@ -44,9 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
         allImages = availableImages.map(filename => {
             const imageObj = {
                 src: `images/galeria/${filename}`,
-                title: imageTitles[filename] || filename.replace('.jpg', '').replace('-', ' '),
+                title: imageTitles[filename] || filename.replace(/\.[^.]+$/, '').replace(/-/g, ' '),
                 description: '', // Sin descripciones en la galería completa
-                alt: imageTitles[filename] || filename.replace('.jpg', '').replace('-', ' ')
+                alt: imageTitles[filename] || filename.replace(/\.[^.]+$/, '').replace(/-/g, ' ')
             };
             return imageObj;
         });
@@ -153,7 +159,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function downloadImage(src, filename) {
         const link = document.createElement('a');
         link.href = src;
-        link.download = filename.replace(/\s+/g, '_') + '.jpg';
+        const ext = src.split('.').pop() || 'jpg';
+        link.download = filename.replace(/\s+/g, '_') + '.' + ext;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
